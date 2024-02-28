@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro y Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Registro / Iniciar sesión</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="input-group">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="input-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+            <button type="submit" id="submitBtn">Registrarse / Iniciar sesión</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            // Obtener los valores del nombre, apellido y contraseña ingresados por el usuario
+            var nombre = document.getElementById('nombre').value;
+            var apellido = document.getElementById('apellido').value;
+            var contrasena = document.getElementById('contrasena').value;
+
+            // Comprobar si el usuario está registrado
+            var usuariosRegistrados = localStorage.getItem('usuarios');
+            var usuarios = usuariosRegistrados ? JSON.parse(usuariosRegistrados) : [];
+
+            var usuarioExistente = usuarios.find(function(usuario) {
+                return usuario.nombre === nombre && usuario.apellido === apellido;
+            });
+
+            if (usuarioExistente) {
+                // Verificar la contraseña si el usuario está registrado
+                if (usuarioExistente.contrasena === contrasena) {
+                    // Usuario autenticado, redirigir al usuario a la página de documentos o a donde sea necesario
+                    window.location.href = 'documentos.html';
+                } else {
+                    mostrarMensaje('Contraseña incorrecta');
+                }
+            } else {
+                // Registrar al nuevo usuario si no está registrado
+                var nuevoUsuario = {
+                    nombre: nombre,
+                    apellido: apellido,
+                    contrasena: contrasena
+                };
+
+                usuarios.push(nuevoUsuario);
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+                // Usuario registrado, redirigir al usuario a la página de documentos o a donde sea necesario
+                window.location.href = 'documentos.html';
+            }
+        });
+
+        function mostrarMensaje(mensaje) {
+            document.getElementById('resultado').textContent = mensaje;
+        }
+    </script>
+</body>
+</html>

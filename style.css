@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para la página de bienvenida */
+.welcome-container {
+    text-align: center;
+    margin-top: 20vh;
+}
+
+/* Estilos para el enlace de inicio de sesión en la página de bienvenida */
+.login-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el contenedor del formulario de inicio de sesión */
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: auto;
+    margin-top: 20vh;
+}
+
+/* Estilos para los campos de entrada y etiquetas */
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para el botón de inicio de sesión */
+button {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para el mensaje de resultado (error) */
+#resultado {
+    margin-top: 15px;
+    color: red;
+}
+
+/* Estilos para el contenedor de documentos */
+.documentos-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+/* Estilos para la lista de documentos */
+.documentos-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilos para los enlaces de documentos */
+.documentos-container ul li a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+}
+
+.documentos-container ul li a:hover {
+    background-color: #f0f0f0;
+}

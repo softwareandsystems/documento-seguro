@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Registrados</title>
+    <style>
+        /* Estilos para la lista de usuarios */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Usuarios Registrados</h2>
+    <ul id="usuariosList"></ul>
+
+    <script>
+        // Obtener los usuarios almacenados en el localStorage
+        var usuariosRegistrados = localStorage.getItem('usuarios');
+        var usuarios = usuariosRegistrados ? JSON.parse(usuariosRegistrados) : [];
+
+        // Mostrar los usuarios en la lista
+        var usuariosListElement = document.getElementById('usuariosList');
+        usuarios.forEach(function(usuario) {
+            var usuarioItem = document.createElement('li');
+            usuarioItem.textContent = usuario.nombre + ' ' + usuario.apellido;
+            usuariosListElement.appendChild(usuarioItem);
+        });
+    </script>
+</body>
+</html>
